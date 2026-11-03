@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Carlo Abiva | 2D Game Developer & Artist // Inter-Knot Dossier</title>
+
+    <!-- Meta SEO -->
+    <meta name="description"
+        content="Portfolio of John Carlo N. Abiva - 2D Game Developer and Artist. Tools: Godot Engine, Unity for game development, Ibis Paint, Clip Studio Paint, Pixel Studio, Krita for 2D art, and Blender for 3D modeling.">
+    <meta name="author" content="John Carlo N. Abiva">
+
+    <!-- Google Fonts for authentic ZZZ Streetpunk & Cyberpunk aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;0,900;1,800;1,900&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;700&family=Teko:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="zzz-theme crt-enabled">
+
+    <!-- Custom Madam Cursor -->
+    <div class="custom-cursor-container" id="customCursor" aria-hidden="true">
+        <div class="cursor-reticle"></div>
+        <img src="images/madam.png" alt="" class="cursor-sprite">
+    </div>
+
+    <!-- Global CRT Scanline & Grain Overlay -->
+    <div class="crt-overlay" id="crtOverlay" aria-hidden="true"></div>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- =========================================================
+         TOP SYSTEM BAR / MARQUEE HAZARD TAPE
+    ========================================================= -->
+    <div class="hazard-ticker-bar">
+        <div class="hazard-ticker-track">
+            <span>/// WARNING: PROXY CLEARANCE S-RANK /// DENOUAMENT ARCHIVE PROTOCOL /// GAME DEV: GODOT &amp; UNITY 2D
+                /// 2D ART: IBIS PAINT • CLIP STUDIO • PIXEL STUDIO • KRITA /// 3D MODELING: BLENDER /// JOHN CARLO
+                ABIVA PORTFOLIO /// OPEN FOR COMMISSIONS &amp; STUDIO ROLES ///</span>
+            <span>/// WARNING: PROXY CLEARANCE S-RANK /// DENOUAMENT ARCHIVE PROTOCOL /// GAME DEV: GODOT &amp; UNITY 2D
+                /// 2D ART: IBIS PAINT • CLIP STUDIO • PIXEL STUDIO • KRITA /// 3D MODELING: BLENDER /// JOHN CARLO
+                ABIVA PORTFOLIO /// OPEN FOR COMMISSIONS &amp; STUDIO ROLES ///</span>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         STICKY NAVIGATION HEADER
+    ========================================================= -->
+    <header class="zzz-header" id="navbar">
+        <div class="header-inner">
+
+            <!-- Logo Brand -->
+            <a href="#hero" class="brand-logo" onclick="playSfx('click')">
+                <div class="brand-icon">
+                    <span class="brand-bolt">⚡</span>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">JC ABIVA</span>
+                    <span class="brand-badge">2D GAME DEV</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link active" onclick="playSfx('blip')">
+                    <span class="nav-num">01</span>
+                    <span class="nav-label">HOME</span>
+                </a>
+                <a href="#agents" class="nav-link" onclick="playSfx('blip')">
+                    <span class="nav-num">02</span>
+                    <span class="nav-label">AGENTS</span>
+                </a>
+                <a href="#games" class="nav-link" onclick="playSfx('blip')">
+                    <span class="nav-num">03</span>
+                    <span class="nav-label">GAMES</span>
+                </a>
+                <a href="#retro-tv" class="nav-link" onclick="playSfx('blip')">
+                    <span class="nav-num">04</span>
+                    <span class="nav-label">RANDOM PLAY TV</span>
+                </a>
+                <a href="#vault" class="nav-link" onclick="playSfx('blip')">
+                    <span class="nav-num">05</span>
+                    <span class="nav-label">ART VAULT</span>
+                </a>
+                <a href="#dossier" class="nav-link" onclick="playSfx('blip')">
+                    <span class="nav-num">06</span>
+                    <span class="nav-label">DOSSIER</span>
+                </a>
+                <a href="#contact" class="nav-link" onclick="playSfx('blip')">
+                    <span class="nav-num">07</span>
+                    <span class="nav-label">COMMS</span>
+                </a>
+            </nav>
+
+            <!-- Utility Controls & CTA -->
+            <div class="header-actions">
+                <!-- Audio SFX Toggle -->
+                <button class="util-btn" id="sfxToggleBtn" title="Toggle Sound FX" onclick="toggleSfx()">
+                    <span class="btn-icon">🔊</span>
+                    <span class="btn-text">SFX: ON</span>
+                </button>
+
+                <!-- BGM Synth Beat Toggle -->
+                <button class="util-btn" id="bgmToggleBtn" title="Toggle Random BGM Playlist" onclick="toggleBgm()">
+                    <span class="equalizer-bars">
+                        <i></i><i></i><i></i><i></i>
+                    </span>
+                    <span class="btn-text" id="bgmBtnText">BGM: OFF</span>
+                </button>
+
+                <!-- CRT Toggle -->
+                <button class="util-btn" id="crtToggleBtn" title="Toggle CRT Scanline Effect" onclick="toggleCrt()">
+                    <span class="btn-icon">📺</span>
+                    <span class="btn-text">CRT</span>
+                </button>
+
+                <!-- Action CTA -->
+                <a href="#contact" class="cta-pill" onclick="playSfx('click')">
+                    <span>COMMISSION</span>
+                    <div class="pill-arrow">→</div>
+                </a>
+
+                <!-- Mobile Hamburger -->
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- =========================================================
+         HERO SECTION (THE PROXY LANDING)
+    ========================================================= -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-graphic" aria-hidden="true">
+            <div class="bg-diagonal-stripe"></div>
+            <div class="bg-huge-text">DENOUAMENT</div>
+            <div class="bg-crosshair ch-1">+</div>
+            <div class="bg-crosshair ch-2">+</div>
+            <div class="bg-tech-grid"></div>
+        </div>
+
+        <div class="hero-container">
+
+            <!-- Left Info Block -->
+            <div class="hero-content">
+                <div class="hero-meta-badge">
+                    <span class="badge-tag">INTER-KNOT ARCHIVE</span>
+                    <span class="badge-status"><i class="status-dot"></i> LIVE PROTOCOL</span>
+                    <span class="badge-rank">RANK: S-PROXY</span>
+                </div>
+
+                <h1 class="hero-glitch-title" data-text="JOHN CARLO ABIVA">
+                    JOHN CARLO <br>
+                    <span class="accent-text">ABIVA</span>
+                </h1>
+
+                <div class="hero-role-banner">
+                    <span class="role-highlight">2D GAME DEVELOPER</span>
+                    <span class="role-separator">//</span>
+                    <span class="role-highlight">CONCEPT ARTIST</span>
+                </div>
+
+                <p class="hero-description">
+                    Forging responsive 2D combat systems, atmospheric pixel worlds, and memorable character design.
+                    Specializing in <strong>Godot Engine</strong> &amp; <strong>Unity 2D</strong> for game development,
+                    a complete 2D art pipeline with <strong>Ibis Paint</strong>, <strong>Clip Studio</strong>,
+                    <strong>Pixel Studio</strong>, and <strong>Krita</strong>, plus 3D asset modeling in
+                    <strong>Blender</strong>.
+                </p>
+
+                <!-- Toolkit Arsenal Badges -->
+                <div class="engine-pills">
+                    <div class="engine-tag godot" title="Game Development: Godot &amp; Unity">
+                        <span class="tag-icon">🤖</span>
+                        <div class="tag-text">
+                            <span class="tag-title">GODOT &amp; UNITY</span>
+                            <span class="tag-sub">GAME DEVELOPMENT</span>
+                        </div>
+                    </div>
+                    <div class="engine-tag art" title="2D Art: Ibis Paint, Clip Studio, Pixel Studio, Krita">
+                        <span class="tag-icon">🎨</span>
+                        <div class="tag-text">
+                            <span class="tag-title">IBIS PAINT • CLIP STUDIO</span>
+                            <span class="tag-sub">PIXEL STUDIO • KRITA // 2D ART</span>
+                        </div>
+                    </div>
+                    <div class="engine-tag blender" title="3D Modeling: Blender">
+                        <span class="tag-icon">🧊</span>
+                        <div class="tag-text">
+                            <span class="tag-title">BLENDER</span>
+                            <span class="tag-sub">3D MODELING &amp; PROPS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="hero-btn-group">
+                    <a href="#agents" class="zzz-btn zzz-btn-primary" onclick="playSfx('click')">
+                        <span class="btn-cut"></span>
+                        <span class="btn-label">ROSTER &amp; AGENTS</span>
+                        <span class="btn-icon">⚡</span>
+                    </a>
+                    <a href="#games" class="zzz-btn zzz-btn-secondary" onclick="playSfx('click')">
+                        <span class="btn-cut"></span>
+                        <span class="btn-label">DEPLOYED GAMES</span>
+                        <span class="btn-icon">🎮</span>
+                    </a>
+                    <a href="#dossier" class="zzz-btn zzz-btn-ghost" onclick="playSfx('click')">
+                        <span class="btn-cut"></span>
+                        <span class="btn-label">PROXY BIO</span>
+                        <span class="btn-icon">📋</span>
+                    </a>
+                </div>
+
+                <!-- Quick Terminal Data -->
+                <div class="terminal-stats-strip">
+                    <div class="stat-item">
+                        <span class="stat-label">GAME DEV</span>
+                        <span class="stat-val">GODOT &amp; UNITY</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">2D ART PIPELINE</span>
+                        <span class="stat-val">IBIS • CSP • PIXEL STUDIO • KRITA</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">3D MODELING</span>
+                        <span class="stat-val">BLENDER</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">STATUS</span>
+                        <span class="stat-val status-avail">OPEN FOR FREELANCE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Featured Visual Card -->
+            <div class="hero-visual-col">
+                <div class="hero-art-frame">
+                    <div class="frame-corner top-left"></div>
+                    <div class="frame-corner top-right"></div>
+                    <div class="frame-corner btm-left"></div>
+                    <div class="frame-corner btm-right"></div>
+
+                    <div class="frame-hud-tag">
+                        <span>REC [00:24:99]</span>
+                        <span>FPS: 60.0</span>
+                        <span>FOV: NORMAL</span>
+                    </div>
+
+                    <div class="hero-image-wrap">
+                        <img src="images/Untitled1603.png" alt="Featured 2D Character Design by John Carlo"
+                            id="heroKeyArt" class="hero-main-img">
+                        <div class="hero-art-glow"></div>
+                        <div class="hero-art-scanlines"></div>
+                    </div>
+
+                    <div class="frame-caption-strip">
+                        <div class="caption-id">
+                            <span class="cap-code">SPEC_FILE // ELAINE</span>
+                            <span class="cap-name">ELAINE</span>
+                        </div>
+                        <button class="inspect-btn"
+                            onclick="openLightboxFromSrc('images/Untitled1603.png', 'Elaine // The Lost Alchemist', 'A famous alchemist in Laguna who disappeared a long time ago. One of the main villains of Denouement.'); playSfx('click');">
+                            <span>INSPECT</span>
+                            <span>🔍</span>
+                        </button>
+                    </div>
+
+                    <!-- Floating Tech Badges -->
+                    <div class="float-chip chip-1">
+                        <span class="chip-dot"></span>
+                        <span>FACTION // DENOUEMENT</span>
+                    </div>
+                    <div class="float-chip chip-2">
+                        <span class="chip-dot"></span>
+                        <span>TYPE // 2D SPRITE CG</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION: AGENT & CHARACTER ROSTER (ZZZ AGENT SELECT HOMAGE)
+    ========================================================= -->
+    <section class="section-container agents-section" id="agents">
+        <div class="section-header">
+            <div class="header-pre">
+                <span class="pre-badge">DATABASE 02</span>
+                <span class="pre-slash">//</span>
+                <span class="pre-text">INTER-KNOT AGENT DIRECTORY</span>
+            </div>
+            <h2 class="section-title">
+                CHARACTER <span class="accent-text">ROSTER</span>
+            </h2>
+            <p class="section-subtitle">
+                Original characters, NPC doodles, and protagonist concepts designed for 2D RPGs, visual novels, and
+                simulation games.
+            </p>
+        </div>
+
+        <!-- Faction Selector Bar -->
+        <div class="roster-filter-bar">
+            <button class="faction-tab active" data-filter="all" onclick="filterAgents('all')">
+                <span class="tab-indicator"></span>
+                <span class="tab-text">ALL AGENTS</span>
+                <span class="tab-count" id="count-all">10</span>
+            </button>
+            <button class="faction-tab" data-filter="denouement" onclick="filterAgents('denouement')">
+                <span class="tab-indicator"></span>
+                <span class="tab-text">DENOUEMENT (RPG/VN)</span>
+                <span class="tab-count" id="count-denouement">6</span>
+            </button>
+            <button class="faction-tab" data-filter="foodcart" onclick="filterAgents('foodcart')">
+                <span class="tab-indicator"></span>
+                <span class="tab-text">FOOD CART SIM</span>
+                <span class="tab-count" id="count-foodcart">2</span>
+            </button>
+            <button class="faction-tab" data-filter="concepts" onclick="filterAgents('concepts')">
+                <span class="tab-indicator"></span>
+                <span class="tab-text">ORIGINAL CONCEPTS</span>
+                <span class="tab-count" id="count-concepts">2</span>
+            </button>
+        </div>
+
+        <!-- Dynamic Category Showcase Banner Picture -->
+        <div class="roster-category-banner" id="rosterCategoryBanner">
+            <div class="cat-banner-bg" id="catBannerBg">
+                <img src="images/Mistress of crepuscule.png" alt="Category Banner" id="catBannerImg" class="cat-banner-img">
+                <div class="cat-banner-overlay"></div>
+                <div class="cat-banner-scanline"></div>
+                <div class="cat-banner-glow"></div>
+            </div>
+            <div class="cat-banner-content">
+                <div class="cat-banner-badge">
+                    <span class="badge-dot"></span>
+                    <span id="catBannerCode">CATEGORY_ID // ALL_UNITS</span>
+                    <span class="cat-banner-pill" id="catBannerPill">ALL FACTIONS</span>
+                </div>
+                <h3 class="cat-banner-title" id="catBannerTitle">ALL REGISTERED AGENTS</h3>
+                <p class="cat-banner-desc" id="catBannerDesc">
+                    Comprehensive archive of playable protagonists, visual novel figures, NPC sprites, and original concept designs.
+                </p>
+            </div>
+            <div class="cat-banner-stats">
+                <div class="cat-stat-pill">
+                    <span class="csp-label">DEPLOYED</span>
+                    <span class="csp-val" id="catBannerCount">10 AGENTS</span>
+                </div>
+                <div class="cat-stat-pill">
+                    <span class="csp-label">CLEARANCE</span>
+                    <span class="csp-val">S-RANK</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Agent Showcase Stage -->
+        <div class="agent-stage-layout">
+
+            <!-- Left: Roster List Selector -->
+            <div class="roster-sidebar" id="agentRosterList">
+                <!-- Dynamically populated via script.js -->
+            </div>
+
+            <!-- Center & Right: Active Agent Display Terminal -->
+            <div class="agent-display-terminal" id="agentTerminal">
+
+                <!-- Watermark Background Text -->
+                <div class="terminal-watermark" id="agentWatermark">MISTRESS</div>
+
+                <!-- Main Character Splash Art -->
+                <div class="agent-art-pod">
+                    <div class="pod-glow"></div>
+                    <img src="images/Mistress of crepuscule_20260828133647.png" alt="Agent Art" id="activeAgentArt"
+                        class="agent-render-img">
+                    <div class="pod-hud-element top">
+                        <span class="hud-mono" id="activeAgentCode">AGENT_ID: CREPUSCULE-01</span>
+                        <span class="hud-mono">STATUS: OPERATIONAL</span>
+                    </div>
+                </div>
+
+                <!-- Agent Dossier Data Panel -->
+                <div class="agent-dossier-card">
+                    <div class="dossier-head">
+                        <div class="dossier-faction-tag" id="activeAgentFaction">DENOUEMENT SQUAD</div>
+                        <div class="dossier-engine-tag" id="activeAgentEngine">GODOT ENGINE</div>
+                    </div>
+
+                    <h3 class="agent-name" id="activeAgentName">MISTRESS OF CREPUSCULE</h3>
+                    <div class="agent-alias" id="activeAgentAlias">Protagonist // The First Turning Point</div>
+
+                    <div class="agent-lore-box">
+                        <div class="lore-label">DOSSIER REPORT // SUMMARY:</div>
+                        <p class="lore-text" id="activeAgentDesc">
+                            The central protagonist of the 2D visual novel and RPG "Denouement: The First Turning
+                            Point". Characterized by sharp, mysterious twilight palettes and gothic streetwear flair.
+                        </p>
+                    </div>
+
+                    <!-- Attributes Grid -->
+                    <div class="attributes-grid">
+                        <div class="attr-box">
+                            <span class="attr-title">ROLE / COMBAT</span>
+                            <span class="attr-val" id="activeAgentRole">Protagonist</span>
+                        </div>
+                        <div class="attr-box">
+                            <span class="attr-title">ART STYLE</span>
+                            <span class="attr-val" id="activeAgentStyle">2D Digital & Cel Shaded</span>
+                        </div>
+                        <div class="attr-box">
+                            <span class="attr-title">TOOL PIPELINE</span>
+                            <span class="attr-val" id="activeAgentTool">Clip Studio / Godot 4</span>
+                        </div>
+                        <div class="attr-box">
+                            <span class="attr-title">FILE RESOLUTION</span>
+                            <span class="attr-val" id="activeAgentRes">1920 x 1080 FHD</span>
+                        </div>
+                    </div>
+
+                    <!-- Dossier Action Buttons -->
+                    <div class="dossier-actions">
+                        <button class="zzz-btn zzz-btn-primary" id="inspectAgentArtBtn"
+                            onclick="inspectActiveAgentArt()">
+                            <span class="btn-cut"></span>
+                            <span class="btn-label">VIEW HIGH-RES ART</span>
+                            <span class="btn-icon">🔍</span>
+                        </button>
+                        <a href="#vault" class="zzz-btn zzz-btn-secondary" onclick="playSfx('click')">
+                            <span class="btn-cut"></span>
+                            <span class="btn-label">ASSET VAULT</span>
+                            <span class="btn-icon">📂</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION: GAMES & DEVELOPMENT SHOWCASE (HOLLOW COMMISSIONS)
+    ========================================================= -->
+    <section class="section-container games-section" id="games">
+        <div class="section-header">
+            <div class="header-pre">
+                <span class="pre-badge">COMMISSIONS 03</span>
+                <span class="pre-slash">//</span>
+                <span class="pre-text">ACTIVE GAME PROJECTS & ENGINES</span>
+            </div>
+            <h2 class="section-title">
+                DEPLOYED <span class="accent-text">GAMES</span>
+            </h2>
+            <p class="section-subtitle">
+                Interactive video games, playable prototypes, and tech demos engineered in <strong>Godot Engine</strong>
+                and <strong>Unity</strong>.
+            </p>
+        </div>
+
+        <div class="games-grid">
+
+            <!-- GAME 1: DENOUEMENT -->
+            <div class="game-card">
+                <div class="game-card-banner">
+                    <img src="images/facer.png" alt="Denouement: The First Turning Point" class="game-banner-img">
+                    <div class="game-engine-badge godot">
+                        <span>🤖 GODOT ENGINE</span>
+                    </div>
+                    <div class="game-status-badge">
+                        <span>IN ACTIVE DEVELOPMENT</span>
+                    </div>
+                </div>
+
+                <div class="game-card-body">
+                    <div class="game-code">PROJECT_ID // DENOUEMENT-01</div>
+                    <h3 class="game-title">Denouement: The First Turning Point</h3>
+                    <div class="game-genre">2D Visual Novel & Tactical RPG</div>
+
+                    <p class="game-summary">
+                        a 2d visual novel the focuses on mistress of crepuscule saving her nation against to an unknown
+                        phenomenon
+                    </p>
+
+                    <div class="game-tech-list">
+                        <span class="tech-tag">Godot 4</span>
+                        <span class="tech-tag">GDScript</span>
+                        <span class="tech-tag">Dialogue System</span>
+                        <span class="tech-tag">2D Lighting</span>
+                        <span class="tech-tag">Original OST / CG</span>
+                    </div>
+
+                    <div class="game-meta-row">
+                        <div class="meta-col">
+                            <span class="m-lbl">ROLE</span>
+                            <span class="m-val">Solo Dev & Lead Artist</span>
+                        </div>
+                        <div class="meta-col">
+                            <span class="m-lbl">PLATFORM</span>
+                            <span class="m-val">PC / Web (HTML5)</span>
+                        </div>
+                    </div>
+
+                    <div class="game-actions">
+                        <button class="zzz-btn zzz-btn-secondary"
+                            onclick="openLightboxFromSrc('images/Mistress of crepuscule.png', 'Denouement: Key Art', 'Visual Novel & 2D RPG crafted in Godot Engine by John Carlo Abiva.')">
+                            <span class="btn-cut"></span>
+                            <span class="btn-label">VIEW ART</span>
+                            <span class="btn-icon">🖼️</span>
+                        </button>
+                        <a href="https://nottapple.itch.io/" target="_blank" rel="noopener"
+                            class="zzz-btn zzz-btn-primary" onclick="playSfx('click')">
+                            <span class="btn-cut"></span>
+                            <span class="btn-label">ITCH.IO</span>
+                            <span class="btn-icon">🎮</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAME 2: FOOD CART SIMULATOR -->
+            <div class="game-card">
+                <div class="game-card-banner">
+                    <img src="images/foodsims.PNG" alt="Food Cart Simulator" class="game-banner-img">
+                    <div class="game-engine-badge unity">
+                        <span>⚡ GODOT / UNITY 2D</span>
+                    </div>
+                    <div class="game-status-badge success">
+                        <span>PLAYABLE SYSTEM</span>
+                    </div>
+                </div>
+
+                <div class="game-card-body">
+                    <div class="game-code">PROJECT_ID // FOODCART-SIM</div>
+                    <h3 class="game-title">Food Cart Simulator</h3>
+                    <div class="game-genre">2D Tycoon / Management Simulation</div>
+
+                    <p class="game-summary">
+                        A cozy Filipino street food simulation game featuring complete original 2D asset packs
+                        (Fishball, Kikiam, Qwek-Qwek, Puto, Ihaw-Ihaw), cart upgrades, sauce physics, and interactive
+                        customer NPCs like Emma.
+                    </p>
+
+                    <div class="game-tech-list">
+                        <span class="tech-tag">Godot / Unity 2D</span>
+                        <span class="tech-tag">Custom Asset Packs</span>
+                        <span class="tech-tag">NPC State Machine</span>
+                        <span class="tech-tag">Inventory Grid</span>
+                        <span class="tech-tag">Tycoon Economy</span>
+                    </div>
+
+                    <div class="game-meta-row">
+                        <div class="meta-col">
+                            <span class="m-lbl">ROLE</span>
+                            <span class="m-val">Game Programmer & Asset Artist</span>
+                        </div>
+                        <div class="meta-col">
+                            <span class="m-lbl">ASSETS</span>
+                            <span class="m-val">Handcrafted 2D Sprites</span>
+                        </div>
+                    </div>
+
+                    <div class="game-actions">
+                        <button class="zzz-btn zzz-btn-secondary"
+                            onclick="openLightboxFromSrc('images/foodsims.png', 'Food Cart Simulator: Cart Setup', 'Street food management simulation featuring custom 2D asset packs.')">
+                            <span class="btn-cut"></span>
+                            <span class="btn-label">BLUEPRINT</span>
+                            <span class="btn-icon">🛒</span>
+                        </button>
+                        <a href="https://nottapple.itch.io/" target="_blank" rel="noopener"
+                            class="zzz-btn zzz-btn-primary" onclick="playSfx('click')">
+                            <span class="btn-cut"></span>
+                            <span class="btn-label">ITCH.IO</span>
+                            <span class="btn-icon">🎮</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAME 3: CHAOTIC CITY -->
+            <div class="game-card">
+                <div class="game-card-banner">
+                    <img src="images/3ad.png" alt="Chaotic City: Battle Royale" class="game-banner-img">
+                    <div class="game-engine-badge combat">
+                        <span>💥 ACTION COMBAT</span>
+                    </div>
+                    <div class="game-status-badge">
+                        <span>ARENA BRAWLER</span>
+                    </div>
+                </div>
+
+                <div class="game-card-body">
+                    <div class="game-code">PROJECT_ID // CHAOTIC-ARENA</div>
+                    <h3 class="game-title">Chaotic City: Arena Royale</h3>
+                    <div class="game-genre">Action Combat / Arena Brawler</div>
+
+                    <p class="game-summary">
+                        A fast-paced arena battle royale where players combine traditional martial arts, elemental
+                        magic, and firearm gunplay in an anything-goes urban combat zone with custom combat VFX and
+                        destructibles.
+                    </p>
+
+                    <div class="game-tech-list">
+                        <span class="tech-tag">Combat Scripting</span>
+                        <span class="tech-tag">Hitbox / Hurtbox</span>
+                        <span class="tech-tag">Magic Spells</span>
+                        <span class="tech-tag">Gunplay Physics</span>
+                        <span class="tech-tag">Multiplayer Logic</span>
+                    </div>
+
+                    <div class="game-meta-row">
+                        <div class="meta-col">
+                            <span class="m-lbl">ROLE</span>
+                            <span class="m-val">Mechanics & Combat Designer</span>
+                        </div>
+                        <div class="meta-col">
+                            <span class="m-lbl">COMBAT</span>
+                            <span class="m-val">Martial Arts + Magic + Guns</span>
+                        </div>
+                    </div>
+
+                    <div class="game-actions">
+                        <button class="zzz-btn zzz-btn-secondary"
+                            onclick="openLightboxFromSrc('images/3ad.png', 'Chaotic City: Arena Royale', 'Urban battle royale action mechanics prototype.')">
+                            <span class="btn-cut"></span>
+                            <span class="btn-label">INSPECT</span>
+                            <span class="btn-icon">⚔️</span>
+                        </button>
+                        <a href="https://nottapple.itch.io/" target="_blank" rel="noopener"
+                            class="zzz-btn zzz-btn-primary" onclick="playSfx('click')">
+                            <span class="btn-cut"></span>
+                            <span class="btn-label">ITCH.IO</span>
+                            <span class="btn-icon">🎮</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION: RANDOM PLAY CRT TV STUDIO (ZZZ RETRO TV HOMAGE)
+    ========================================================= -->
+    <section class="section-container retro-tv-section" id="retro-tv">
+        <div class="section-header">
+            <div class="header-pre">
+                <span class="pre-badge">BROADCAST 04</span>
+                <span class="pre-slash">//</span>
+                <span class="pre-text">RANDOM PLAY VIDEO ARCHIVE</span>
+            </div>
+            <h2 class="section-title">
+                Denouament <span class="accent-text">CRT MONITOR</span>
+            </h2>
+            <p class="section-subtitle">
+                Channel-surf through development reels, concept art slides, and asset packs directly on the retro
+                Denouament cathode-ray tube television.
+            </p>
+        </div>
+
+        <div class="crt-tv-stage">
+
+            <!-- CRT Monitor Unit -->
+            <div class="crt-monitor-case">
+
+                <!-- Screen Glass -->
+                <div class="crt-screen-bezel">
+                    <div class="crt-screen-glass" id="crtTvScreen">
+
+                        <!-- TV Content Video -->
+                        <video id="crtTvVideo" class="crt-feed-video" src="images/video1.mp4" autoplay loop muted
+                            playsinline></video>
+
+                        <!-- TV Content Image -->
+                        <img src="images/Cart1.png" alt="CRT Feed" id="crtTvImage" class="crt-feed-img"
+                            style="display: none;">
+
+                        <!-- Scanline & Phosphor Grid -->
+                        <div class="crt-phosphor-grid"></div>
+                        <div class="crt-flicker-beam"></div>
+
+                        <!-- TV Static Canvas -->
+                        <canvas id="crtNoiseCanvas" class="crt-noise-canvas"></canvas>
+
+                        <!-- OSD (On-Screen Display) -->
+                        <div class="crt-osd-overlay">
+                            <div class="osd-top">
+                                <span class="osd-ch" id="crtChDisplay">CH-01 // GAMEPLAY TAPE 01</span>
+                                <span class="osd-tape" id="crtTapeStatus">PLAY ▶ 00:23:00</span>
+                            </div>
+                            <div class="osd-bottom">
+                                <span class="osd-title" id="crtTitleDisplay">2D Game Engine Footage</span>
+                                <span class="osd-sub" id="crtSubDisplay">Live In-Engine Reel // 1080p FHD 60FPS</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TV Hardware Control Panel -->
+                <div class="crt-hardware-panel">
+
+                    <div class="panel-brand">
+                        <span class="brand-text">RANDOM PLAY</span>
+                        <span class="model-text">MODEL-CRT990</span>
+                        <div class="power-led" id="tvPowerLed"></div>
+                    </div>
+
+                    <!-- Channel Buttons -->
+                    <div class="channel-btn-rack">
+                        <button class="ch-btn active" data-channel="1" onclick="switchTvChannel(1)">
+                            <span class="ch-num">01</span>
+                            <span class="ch-tag">Para Po▶</span>
+                        </button>
+                        <button class="ch-btn" data-channel="2" onclick="switchTvChannel(2)">
+                            <span class="ch-num">02</span>
+                            <span class="ch-tag">Sparkle animation ▶</span>
+                        </button>
+                        <button class="ch-btn" data-channel="3" onclick="switchTvChannel(3)">
+                            <span class="ch-num">03</span>
+                            <span class="ch-tag">FOOD CART</span>
+                        </button>
+                        <button class="ch-btn" data-channel="4" onclick="switchTvChannel(4)">
+                            <span class="ch-num">04</span>
+                            <span class="ch-tag">REGIONS</span>
+                        </button>
+                        <button class="ch-btn static-btn" data-channel="0" onclick="switchTvChannel(0)">
+                            <span class="ch-num">⚡</span>
+                            <span class="ch-tag">STATIC</span>
+                        </button>
+                    </div>
+
+                    <!-- Dial Knobs -->
+                    <div class="tv-dials-row">
+                        <div class="tv-dial" onclick="cycleTvChannel(1)" title="Next Channel">
+                            <div class="dial-notch"></div>
+                            <span class="dial-label">TUNE</span>
+                        </div>
+                        <div class="tv-dial" onclick="toggleTvStatic()" title="Toggle Noise">
+                            <div class="dial-notch notch-2"></div>
+                            <span class="dial-label">SIGNAL</span>
+                        </div>
+                        <div class="tv-dial" id="tvAudioToggle" onclick="toggleTvAudio()" title="Toggle Video Audio">
+                            <div class="dial-notch notch-audio"></div>
+                            <span class="dial-label" id="tvAudioLabel">VOL: OFF</span>
+                        </div>
+                        <div class="speaker-grille">
+                            <i></i><i></i><i></i><i></i><i></i><i></i>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION: ARTWORK & ASSET VAULT (FULL GALLERY)
+    ========================================================= -->
+    <section class="section-container vault-section" id="vault">
+        <div class="section-header">
+            <div class="header-pre">
+                <span class="pre-badge">ARCHIVES 05</span>
+                <span class="pre-slash">//</span>
+                <span class="pre-text">CLASSIFIED 2D ART & SPRITE VAULT</span>
+            </div>
+            <h2 class="section-title">
+                ASSET & ART <span class="accent-text">VAULT</span>
+            </h2>
+            <p class="section-subtitle">
+                Complete archive of concept artworks, character sketches, environment paintings, and custom 2D asset
+                packs created by John Carlo Abiva.
+            </p>
+        </div>
+
+        <!-- Gallery Category Tabs -->
+        <div class="vault-filter-pills">
+            <button class="vault-pill active" data-cat="all" onclick="filterGallery('all')">
+                <span>ALL ASSETS (36)</span>
+            </button>
+            <button class="vault-pill" data-cat="characters" onclick="filterGallery('characters')">
+                <span>CHARACTERS & PORTRAITS</span>
+            </button>
+            <button class="vault-pill" data-cat="environments" onclick="filterGallery('environments')">
+                <span>ENVIRONMENTS & REGIONS</span>
+            </button>
+            <button class="vault-pill" data-cat="foodcart" onclick="filterGallery('foodcart')">
+                <span>FOOD CART SIM ASSETS</span>
+            </button>
+            <button class="vault-pill" data-cat="games" onclick="filterGallery('games')">
+                <span>GAMES & PROTOTYPES</span>
+            </button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="vault-grid" id="vaultGrid">
+            <!-- Dynamically populated with all user images via script.js -->
+        </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION: PROXY DOSSIER (ABOUT JOHN CARLO & SKILLS)
+    ========================================================= -->
+    <section class="section-container dossier-section" id="dossier">
+        <div class="section-header">
+            <div class="header-pre">
+                <span class="pre-badge">RECORD 06</span>
+                <span class="pre-slash">//</span>
+                <span class="pre-text">INTER-KNOT PROXY CREDENTIALS</span>
+            </div>
+            <h2 class="section-title">
+                PROXY <span class="accent-text">DOSSIER</span>
+            </h2>
+            <p class="section-subtitle">
+                Developer profile, battle-tested engine proficiencies, and artistic pipeline.
+            </p>
+        </div>
+
+        <div class="dossier-layout">
+
+            <!-- Left: Identity ID Card -->
+            <div class="proxy-id-card">
+                <div class="id-card-header">
+                    <span class="id-agency">INTER-KNOT // PROXY BUREAU</span>
+                    <span class="id-stamp">CLEARANCE: S-RANK</span>
+                </div>
+
+                <div class="id-photo-frame">
+                    <img src="images/a4a.jpg" alt="John Carlo Abiva" class="id-photo">
+                    <div class="id-photo-reticle"></div>
+                    <div class="id-barcode">||| | |||| | ||| |||| || |</div>
+                </div>
+
+                <div class="id-data">
+                    <h3 class="id-name">JOHN CARLO N. ABIVA</h3>
+                    <div class="id-role">2D Game Developer & Concept Artist</div>
+
+                    <div class="id-meta-list">
+                        <div class="meta-item">
+                            <span class="m-k">GAME DEV ENGINES:</span>
+                            <span class="m-v">Godot Engine 4.x / Unity 2D</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="m-k">2D ART SOFTWARE:</span>
+                            <span class="m-v">Ibis Paint, Clip Studio, Pixel Studio, Krita</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="m-k">3D MODELING TOOL:</span>
+                            <span class="m-v">Blender (Low-Poly &amp; Props)</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="m-k">EXPERIENCE:</span>
+                            <span class="m-v">Indie Games, Prototypes, VN &amp; RPG</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="m-k">ITCH.IO STORE:</span>
+                            <span class="m-v"><a href="https://nottapple.itch.io/" target="_blank" rel="noopener"
+                                    style="color:var(--accent-yellow); text-decoration:none;">nottapple.itch.io
+                                    ↗</a></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="m-k">DIRECT COMMS:</span>
+                            <span class="m-v"><a href="mailto:abivajohncarlo9@gmail.com"
+                                    style="color:var(--accent-cyan); text-decoration:none;">abivajohncarlo9@gmail.com</a></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="m-k">STATUS:</span>
+                            <span class="m-v text-neon">AVAILABLE FOR CONTRACTS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="id-foil-seal">
+                    <span>OFFICIAL PROXY VERIFIED</span>
+                </div>
+            </div>
+
+            <!-- Right: Skills Matrix & Bio -->
+            <div class="skills-matrix-wrap">
+
+                <div class="bio-terminal-box">
+                    <div class="term-bar">
+                        <span class="term-dots"><i></i><i></i><i></i></span>
+                        <span class="term-title">FILE_READ: JC_BIO_EXTRACT.TXT</span>
+                    </div>
+                    <p class="bio-para">
+                        Hi! I'm <strong>John Carlo N. Abiva</strong>, a dedicated 2D game developer and digital artist.
+                        I bridge the gap between creative visual design and responsive game architecture, transforming
+                        rough conceptual doodles into living, breathing game worlds.
+                    </p>
+                    <p class="bio-para">
+                        For <strong>Game Development</strong>, I engineer responsive game loops, state machines, and
+                        combat systems using <strong>Godot Engine</strong> (4.x / 3.x) and <strong>Unity 2D</strong>.
+                    </p>
+                    <p class="bio-para">
+                        For <strong>2D Art &amp; Animation</strong>, my pipeline utilizes <strong>Ibis Paint</strong>
+                        for ideation and speed-sketches, <strong>Clip Studio Paint</strong> for detailed character
+                        concept turnarounds and cel shading, <strong>Pixel Studio</strong> for frame-by-frame sprites
+                        and tilesets, and <strong>Krita</strong> for textured environmental matte art. For <strong>3D
+                            Modeling</strong>, I build low-poly models and environmental props in
+                        <strong>Blender</strong>.
+                    </p>
+                </div>
+
+                <!-- Skill Bars Grid -->
+                <div class="skill-bars-rack">
+
+                    <!-- Category: Game Development -->
+                    <div class="skill-category-label">
+                        <span>⚡ GAME DEVELOPMENT ENGINES</span>
+                    </div>
+
+                    <!-- Godot -->
+                    <div class="skill-meter-card">
+                        <div class="skill-card-head">
+                            <span class="skill-icon">🤖</span>
+                            <div class="skill-title-grp">
+                                <span class="skill-title">Godot Engine (4.x / 3.x)</span>
+                                <span class="skill-sub">GDScript, 2D Physics, Tilemaps, Signals, Shaders</span>
+                            </div>
+                            <span class="skill-pct">95%</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Unity -->
+                    <div class="skill-meter-card">
+                        <div class="skill-card-head">
+                            <span class="skill-icon">⚡</span>
+                            <div class="skill-title-grp">
+                                <span class="skill-title">Unity 2D Engine</span>
+                                <span class="skill-sub">C#, 2D Sprite Rigging, Tilemaps, Cinemachine, URP</span>
+                            </div>
+                            <span class="skill-pct">90%</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill unity" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Category: 2D Art Software -->
+                    <div class="skill-category-label">
+                        <span>🎨 2D ART &amp; DIGITAL ILLUSTRATION</span>
+                    </div>
+
+                    <!-- Clip Studio Paint -->
+                    <div class="skill-meter-card">
+                        <div class="skill-card-head">
+                            <span class="skill-icon">🖌️</span>
+                            <div class="skill-title-grp">
+                                <span class="skill-title">Clip Studio Paint</span>
+                                <span class="skill-sub">Character Concept Art, Clean Inking, Cel Shading &amp;
+                                    Turnarounds</span>
+                            </div>
+                            <span class="skill-pct">94%</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill csp" style="width: 94%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Ibis Paint -->
+                    <div class="skill-meter-card">
+                        <div class="skill-card-head">
+                            <span class="skill-icon">🎨</span>
+                            <div class="skill-title-grp">
+                                <span class="skill-title">Ibis Paint</span>
+                                <span class="skill-sub">Character Ideation, Speed Sketching, Mobile &amp; Desktop
+                                    Painting</span>
+                            </div>
+                            <span class="skill-pct">92%</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill ibis" style="width: 92%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Pixel Studio -->
+                    <div class="skill-meter-card">
+                        <div class="skill-card-head">
+                            <span class="skill-icon">👾</span>
+                            <div class="skill-title-grp">
+                                <span class="skill-title">Pixel Studio</span>
+                                <span class="skill-sub">Frame-by-Frame Pixel Art, Animated Sprites, Tilesets &amp;
+                                    Props</span>
+                            </div>
+                            <span class="skill-pct">93%</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill pixel" style="width: 93%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Krita -->
+                    <div class="skill-meter-card">
+                        <div class="skill-card-head">
+                            <span class="skill-icon">🌄</span>
+                            <div class="skill-title-grp">
+                                <span class="skill-title">Krita</span>
+                                <span class="skill-sub">Environmental Matte Painting, Textured Digital Art &amp;
+                                    VFX</span>
+                            </div>
+                            <span class="skill-pct">89%</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill krita" style="width: 89%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Category: 3D Modeling -->
+                    <div class="skill-category-label">
+                        <span>🧊 3D MODELING &amp; ASSETS</span>
+                    </div>
+
+                    <!-- Blender -->
+                    <div class="skill-meter-card">
+                        <div class="skill-card-head">
+                            <span class="skill-icon">🧊</span>
+                            <div class="skill-title-grp">
+                                <span class="skill-title">Blender 3D</span>
+                                <span class="skill-sub">Low-Poly 3D Modeling, Scene Blockouts, Props &amp; UV
+                                    Layouts</span>
+                            </div>
+                            <span class="skill-pct">86%</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill blender" style="width: 86%;"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION: INTER-KNOT COMMS TERMINAL (CONTACT & COMMISSION)
+    ========================================================= -->
+    <section class="section-container comms-section" id="contact">
+        <div class="section-header">
+            <div class="header-pre">
+                <span class="pre-badge">TRANSMISSION 07</span>
+                <span class="pre-slash">//</span>
+                <span class="pre-text">DIRECT COMMS & COMMISSIONS</span>
+            </div>
+            <h2 class="section-title">
+                COMM <span class="accent-text">TERMINAL</span>
+            </h2>
+            <p class="section-subtitle">
+                Looking for a 2D game programmer, character designer, or full prototype developer? Send a direct
+                transmission to John Carlo.
+            </p>
+        </div>
+
+        <div class="terminal-stage">
+
+            <div class="terminal-window">
+
+                <div class="terminal-top-chrome">
+                    <div class="top-tag">Denouament FREQUENCY // ENCRYPTED COMMS</div>
+                    <div class="top-status">SIGNAL: 100% STABLE</div>
+                </div>
+
+                <div class="terminal-body">
+
+                    <form class="comms-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="senderName" class="form-label">
+                                    <span class="label-idx">01</span> SENDER NAME / STUDIO:
+                                </label>
+                                <input type="text" id="senderName" class="form-input"
+                                    placeholder="e.g. Proxy Client / Studio Lead" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="senderEmail" class="form-label">
+                                    <span class="label-idx">02</span> RETURN FREQUENCY (EMAIL):
+                                </label>
+                                <input type="email" id="senderEmail" class="form-input" placeholder="client@domain.com"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectType" class="form-label">
+                                    <span class="label-idx">03</span> COMMISSION MISSION TYPE:
+                                </label>
+                                <select id="projectType" class="form-select">
+                                    <option value="godot">Godot 2D Game Development (GDScript / 2D Physics)</option>
+                                    <option value="unity">Unity 2D Game Programming (C# / Sprite Systems)</option>
+                                    <option value="2dart">2D Concept &amp; Character Art (Clip Studio / Ibis Paint /
+                                        Krita)</option>
+                                    <option value="pixel">Pixel Art &amp; Sprite Sheets (Pixel Studio)</option>
+                                    <option value="blender">3D Modeling &amp; Environmental Props (Blender)</option>
+                                    <option value="full">Full Indie Prototype / Technical Art Collaboration</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeline" class="form-label">
+                                    <span class="label-idx">04</span> TIMELINE / SCOPE:
+                                </label>
+                                <input type="text" id="timeline" class="form-input"
+                                    placeholder="e.g. 2-4 weeks / Milestone based">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="messageText" class="form-label">
+                                <span class="label-idx">05</span> MISSION BRIEF (MESSAGE):
+                            </label>
+                            <textarea id="messageText" class="form-textarea" rows="5"
+                                placeholder="Describe your game idea, art requirements, engine targets, or project details..."
+                                required></textarea>
+                        </div>
+
+                        <div class="form-footer">
+                            <button type="submit" class="zzz-btn zzz-btn-primary" id="sendBtn">
+                                <span class="btn-cut"></span>
+                                <span class="btn-label">TRANSMIT BRIEF</span>
+                                <span class="btn-icon">📡</span>
+                            </button>
+                            <div class="submit-feedback" id="formFeedback"></div>
+                        </div>
+
+                    </form>
+
+                    <!-- Comms Directory & Direct Links -->
+                    <div class="terminal-quick-links">
+                        <div class="quick-title">DIRECT COMMS CHANNELS</div>
+
+                        <div class="channel-card">
+                            <div class="ch-info">
+                                <span class="ch-label">DIRECT EMAIL</span>
+                                <span class="ch-val" id="emailVal">abivajohncarlo9@gmail.com</span>
+                            </div>
+                            <div style="display:flex; gap:0.4rem;">
+                                <a href="mailto:abivajohncarlo9@gmail.com" class="copy-pill"
+                                    style="text-decoration:none;" onclick="playSfx('click')">
+                                    <span>EMAIL ↗</span>
+                                </a>
+                                <button class="copy-pill" onclick="copyText('abivajohncarlo9@gmail.com', this)">
+                                    <span>COPY</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="channel-card">
+                            <div class="ch-info">
+                                <span class="ch-label">ITCH.IO PAGE & GAMES</span>
+                                <span class="ch-val">nottapple.itch.io</span>
+                            </div>
+                            <a href="https://nottapple.itch.io/" target="_blank" rel="noopener" class="copy-pill"
+                                style="text-decoration:none; background:var(--accent-yellow); color:#000;"
+                                onclick="playSfx('click')">
+                                <span>VISIT ITCH.IO ↗</span>
+                            </a>
+                        </div>
+
+                        <div class="channel-card">
+                            <div class="ch-info">
+                                <span class="ch-label">DISCORD PROXY TAG</span>
+                                <span class="ch-val">johncarlo_abiva</span>
+                            </div>
+                            <button class="copy-pill" onclick="copyText('johncarlo_abiva', this)">
+                                <span>COPY</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+    <footer class="zzz-footer">
+        <div class="footer-hazard-bar"></div>
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <div class="brand-title">JOHN CARLO N. ABIVA</div>
+                <div class="brand-sub">2D GAME DEVELOPER & ARTIST // Denouament PROXY SYSTEM</div>
+                <div class="footer-copy">
+                    © 2026 John Carlo N. Abiva. Built with Godot, Unity, Clip Studio, Ibis Paint, Pixel Studio, Krita
+                    &amp; Blender. Styled after the Zenless Zone Zero cyber aesthetic.
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <a href="#hero" class="f-link" onclick="playSfx('blip')">TOP</a>
+                <a href="#agents" class="f-link" onclick="playSfx('blip')">AGENTS</a>
+                <a href="#games" class="f-link" onclick="playSfx('blip')">GAMES</a>
+                <a href="#vault" class="f-link" onclick="playSfx('blip')">ASSET VAULT</a>
+                <a href="https://nottapple.itch.io/" target="_blank" rel="noopener" class="f-link"
+                    onclick="playSfx('blip')">ITCH.IO ↗</a>
+                <a href="mailto:abivajohncarlo9@gmail.com" class="f-link" onclick="playSfx('blip')">EMAIL</a>
+            </div>
+
+            <div class="footer-status-box">
+                <span class="status-code">SYSTEM VER // 2.4.0</span>
+                <span class="status-zone">ZONE: INDIE-DEV-01</span>
+                <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); playSfx('click');">
+                    <span>▲ BACK TO TOP</span>
+                </button>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         LIGHTBOX MODAL (ZZZ POPUP VIEWER)
+    ========================================================= -->
+    <div class="zzz-modal" id="lightboxModal" aria-hidden="true">
+        <div class="modal-backdrop" onclick="closeLightbox()"></div>
+
+        <div class="modal-window">
+
+            <div class="modal-header">
+                <div class="modal-tags">
+                    <span class="tag-accent">CLASSIFIED ASSET</span>
+                    <span class="tag-id" id="modalId">ASSET_VIEWER</span>
+                </div>
+                <button class="modal-close-btn" onclick="closeLightbox()" title="Close Viewer (Esc)">
+                    <span>✕</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-image-stage">
+                    <img src="" alt="Artwork Preview" id="modalImage" class="modal-img">
+                    <div class="modal-reticle-overlay"></div>
+                </div>
+
+                <div class="modal-info-panel">
+                    <h3 class="modal-title" id="modalTitle">Artwork Title</h3>
+                    <p class="modal-desc" id="modalDesc">Detailed artwork description.</p>
+
+                    <div class="modal-meta-grid">
+                        <div class="meta-item">
+                            <span class="m-k">CREATOR</span>
+                            <span class="m-v">John Carlo N. Abiva</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="m-k">TOOLS / ENGINE</span>
+                            <span class="m-v">Godot / Unity / 2D Art</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="m-k">CLEARANCE</span>
+                            <span class="m-v">S-Rank Asset</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-nav-row">
+                        <button class="nav-arrow prev" onclick="navigateLightbox(-1); playSfx('click');"
+                            title="Previous Image (Left Arrow)">
+                            <span>← PREV</span>
+                        </button>
+                        <span class="nav-indicator" id="modalCounter">1 / 35</span>
+                        <button class="nav-arrow next" onclick="navigateLightbox(1); playSfx('click');"
+                            title="Next Image (Right Arrow)">
+                            <span>NEXT →</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating Cyber BGM Cassette Deck (ZZZ Random Play) -->
+    <div class="bgm-floating-deck" id="bgmFloatingDeck">
+        <div class="deck-tape-graphic">
+            <span class="tape-reel reel-left"></span>
+            <span class="tape-reel reel-right"></span>
+        </div>
+        <div class="deck-info">
+            <div class="deck-badge">RANDOM PLAY // BGM TAPE</div>
+            <div class="deck-marquee">
+                <span id="bgmTrackTitle">Loading BGM Playlist...</span>
+            </div>
+        </div>
+        <div class="deck-controls">
+            <button class="deck-btn" id="bgmPlayPauseBtn" onclick="toggleBgm()" title="Play / Pause BGM">
+                <span id="bgmPlayIcon">▶</span>
+            </button>
+            <button class="deck-btn" id="bgmNextBtn" onclick="changeToNextTrack()" title="Next Song (⏭)">
+                <span>⏭</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Native Cyber BGM Audio Player -->
+    <audio id="bgmAudio" preload="auto"></audio>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
